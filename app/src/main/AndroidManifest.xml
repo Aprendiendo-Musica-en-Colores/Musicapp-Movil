@@ -9,6 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".CrearSala"></activity>
+        <activity android:name=".Reunion" />
+        <activity android:name=".Seleccion" />
+        <activity android:name=".Esperas" />
+        <activity android:name=".Ingresar" />
+        <activity android:name=".Login" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
