@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#b24c81"
+    android:padding="10dp"
+    tools:context=".crudUsuarios">
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="0dp"
+        android:layout_height="98dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginRight="52dp"
+        android:gravity="center"
+        android:text="@string/txtTitulo"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="148dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/idRut"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="32dp"
+                android:background="@drawable/redondeo"
+                android:ems="10"
+                android:enabled="true"
+                android:gravity="center"
+                android:hint="@string/txtRut"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textColorHint="@android:color/black"
+                tools:layout_editor_absoluteX="304dp"
+                tools:layout_editor_absoluteY="198dp" />
+
+            <EditText
+                android:id="@+id/idNom"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginRight="32dp"
+                android:background="@drawable/redondeo"
+                android:ems="10"
+                android:enabled="true"
+                android:gravity="center"
+                android:hint="@string/txtNombre"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textColorHint="@android:color/black"
+                tools:layout_editor_absoluteX="304dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+            <EditText
+                android:id="@+id/idApeMat"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginRight="32dp"
+                android:background="@drawable/redondeo"
+                android:ems="10"
+                android:enabled="true"
+                android:gravity="center"
+                android:hint="@string/txtApeMat"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textColorHint="@android:color/black"
+                tools:layout_editor_absoluteX="304dp"
+                tools:layout_editor_absoluteY="408dp" />
+
+            <EditText
+                android:id="@+id/idApePat"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginRight="32dp"
+                android:background="@drawable/redondeo"
+                android:ems="10"
+                android:enabled="true"
+                android:gravity="center"
+                android:hint="@string/txtApePat"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textColorHint="@android:color/black"
+                tools:layout_editor_absoluteX="304dp"
+                tools:layout_editor_absoluteY="340dp" />
+
+            <EditText
+                android:id="@+id/idDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginRight="32dp"
+                android:background="@drawable/redondeo"
+                android:ems="10"
+                android:enabled="true"
+                android:gravity="center"
+                android:hint="@string/txtDireccion"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textColorHint="@android:color/black"
+                tools:layout_editor_absoluteX="304dp"
+                tools:layout_editor_absoluteY="548dp" />
+
+            <EditText
+                android:id="@+id/idMail"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginRight="32dp"
+                android:background="@drawable/redondeo"
+                android:ems="10"
+                android:enabled="true"
+                android:gravity="center"
+                android:hint="@string/txtMail"
+                android:inputType="textEmailAddress"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textColorHint="@android:color/black"
+                tools:layout_editor_absoluteX="304dp"
+                tools:layout_editor_absoluteY="478dp" />
+
+            <EditText
+                android:id="@+id/idFecNac"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginRight="32dp"
+                android:background="@drawable/redondeo"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/txtFecNac"
+                android:inputType="text|date"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textColorHint="@android:color/black"
+                tools:layout_editor_absoluteX="304dp"
+                tools:layout_editor_absoluteY="618dp" />
+
+            <EditText
+                android:id="@+id/idUsu"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginRight="32dp"
+                android:background="@drawable/redondeo"
+                android:ems="10"
+                android:enabled="true"
+                android:gravity="center"
+                android:hint="@string/txtUser"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textColorHint="@android:color/black"
+                tools:layout_editor_absoluteX="304dp"
+                tools:layout_editor_absoluteY="688dp" />
+
+            <EditText
+                android:id="@+id/idPass"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginRight="32dp"
+                android:background="@drawable/redondeo"
+                android:ems="10"
+                android:enabled="true"
+                android:gravity="center"
+                android:hint="@string/txtPass"
+                android:inputType="textPassword"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textColorHint="@android:color/black"
+                tools:layout_editor_absoluteX="304dp"
+                tools:layout_editor_absoluteY="758dp" />
+
+            <Spinner
+                android:id="@+id/idTipoUsu"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="28dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:spinnerMode="dropdown"
+                android:textAlignment="center"
+                tools:layout_editor_absoluteX="175dp"
+                tools:layout_editor_absoluteY="832dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/conteiner_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fbtnMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="36dp"
+            android:src="@drawable/ic_baseline_menu_24"
+            app:backgroundTint="#C11BDD"
+            app:fabSize="normal">
+
+        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fbtnAgregar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="5dp"
+        android:clickable="true"
+        app:backgroundTint="#4CAF50"
+        app:layout_constraintBottom_toTopOf="@+id/conteiner_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_baseline_person_add_24" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/fab_text_bg"
+        android:padding="10dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:text="@string/txtAgregar"
+        android:textColor="#000000"
+        app:fontFamily="@font/raleway_semibold"
+        app:layout_constraintBottom_toBottomOf="@+id/fbtnAgregar"
+        app:layout_constraintEnd_toStartOf="@+id/fbtnAgregar"
+        app:layout_constraintTop_toTopOf="@+id/fbtnAgregar" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fbtnEliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="15dp"
+        android:clickable="true"
+        app:backgroundTint="#CA3025"
+        app:layout_constraintBottom_toTopOf="@+id/fbtnAgregar"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView3"
+        app:srcCompat="@drawable/ic_person_remove_white_18dp" />
+
+    <TextView
+        android:id="@+id/idtxtEliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/fab_text_bg"
+        android:padding="10dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:text="@string/txtEliminar"
+        android:textColor="#000000"
+        app:fontFamily="@font/raleway_semibold"
+        app:layout_constraintBottom_toBottomOf="@+id/fbtnEliminar"
+        app:layout_constraintEnd_toStartOf="@+id/fbtnEliminar"
+        app:layout_constraintTop_toTopOf="@+id/fbtnEliminar" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fbtnModificar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="15dp"
+        android:clickable="true"
+        app:backgroundTint="#FF9800"
+        app:layout_constraintBottom_toTopOf="@+id/fbtnEliminar"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView3"
+        app:srcCompat="@drawable/ic_baseline_people_alt_24" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/fab_text_bg"
+        android:padding="10dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:text="@string/txtModificar"
+        android:textColor="#000000"
+        app:fontFamily="@font/raleway_semibold"
+        app:layout_constraintBottom_toBottomOf="@+id/fbtnModificar"
+        app:layout_constraintEnd_toStartOf="@+id/fbtnModificar"
+        app:layout_constraintTop_toTopOf="@+id/fbtnModificar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
