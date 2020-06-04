@@ -17,9 +17,13 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,6 +36,7 @@ public class crudUsuarios extends AppCompatActivity {
     private Spinner etTipoUsu;
     private boolean isOpen;
     private Animation btnOpenAnim,btnCloseAnim;
+    private RequestQueue datos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,19 +52,22 @@ public class crudUsuarios extends AppCompatActivity {
         fbtnAgregar = findViewById(R.id.fbtnAgregar);
         fbtnEliminar = findViewById(R.id.fbtnEliminar);
         fbtnModificar = findViewById(R.id.fbtnModificar);
-        etRut = findViewById(R.id.idRut);
-        etNombre = findViewById(R.id.idNom);
-        etApePat = findViewById(R.id.idApePat);
-        etApeMat = findViewById(R.id.idApeMat);
-        etDirec = findViewById(R.id.idDireccion);
-        etMail = findViewById(R.id.idMail);
-        etFecNac = findViewById(R.id.idFecNac);
-        etUsu = findViewById(R.id.idUsu);
-        etPass = findViewById(R.id.idPass);
-        etTipoUsu = findViewById(R.id.idTipoUsu);
         txtAgregar = findViewById(R.id.txtBtnAgregar);
         txtEliminar = findViewById(R.id.txtBtnEliminar);
         txtModificar = findViewById(R.id.txtBtnModificar);
+
+        etRut = (EditText) findViewById(R.id.idRut);
+        etNombre = (EditText) findViewById(R.id.idNom);
+        etApePat =(EditText) findViewById(R.id.idApePat);
+        etApeMat =(EditText) findViewById(R.id.idApeMat);
+        etDirec =(EditText) findViewById(R.id.idDireccion);
+        etMail =(EditText) findViewById(R.id.idMail);
+        etFecNac =(EditText) findViewById(R.id.idFecNac);
+        etUsu =(EditText) findViewById(R.id.idUsu);
+        etPass =(EditText) findViewById(R.id.idPass);
+        etTipoUsu =(Spinner) findViewById(R.id.idTipoUsu);
+
+        datos= Volley.newRequestQueue(this);
 
         isOpen = false;
         fbtnMenu.setOnClickListener(new View.OnClickListener() {
@@ -85,42 +93,29 @@ public class crudUsuarios extends AppCompatActivity {
             }
         });
 
-        fbtnAgregar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ejecutar("http://localhost/phpmyadmin/index.php");
-            }
-        });
     }
-    private void ejecutar(String URL){
-        StringRequest stringRequest= new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+
+    public void ObtenerDatos(){
+        String URL="";
+        JsonObjectRequest request= new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
-            public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(), "OPERACIÓN EXITOSA", Toast.LENGTH_LONG).show();
+            public void onResponse(JSONObject response) {
+                try {
+                    etRut.setText(response.getString("Run"));
+                    etNombre.setText(response.getString("Nombre"));
+                    etApePat.setText(response.getString("ApePat"));
+                    etApeMat.setText(response.getString("ApeMat"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                error.printStackTrace();
             }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> parametros = new HashMap<String,String>();
-                parametros.put("Run",etRut.getText().toString());
-                parametros.put("Nombre",etNombre.getText().toString());
-                parametros.put("ApPaterno",etApePat.getText().toString());
-                parametros.put("ApMaterno",etApeMat.getText().toString());
-                parametros.put("Direccion",etDirec.getText().toString());
-                parametros.put("Email",etMail.getText().toString());
-                parametros.put("Nacimiento",etFecNac.getText().toString());
-                parametros.put("user",etUsu.getText().toString());
-                parametros.put("pass",etPass.getText().toString());
-                parametros.put("Perfil",etTipoUsu.getSelectedItem().toString());
-                return parametros;
-            }
-        };
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+        });
+        datos.add(request);
     }
+
 }

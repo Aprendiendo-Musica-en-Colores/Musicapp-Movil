@@ -16,7 +16,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void onCLick(View view){
-        Intent cambio = new Intent(Login.this, Ingresar.class);
+        Intent cambio = new Intent(Login.this, CrearSala.class);
         startActivity(cambio);
     }
 }

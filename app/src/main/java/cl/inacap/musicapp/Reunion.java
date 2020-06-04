@@ -15,7 +15,12 @@ public class Reunion extends AppCompatActivity {
     }
 
     public void onCLick(View view){
-        Intent cambio = new Intent(Reunion.this, Esperas.class);
+        Intent cambio = new Intent(Reunion.this, Seleccion.class);
+        startActivity(cambio);
+    }
+
+    public void Siguiente(View view){
+        Intent cambio = new Intent(Reunion.this, Seleccion.class);
         startActivity(cambio);
     }
 }
