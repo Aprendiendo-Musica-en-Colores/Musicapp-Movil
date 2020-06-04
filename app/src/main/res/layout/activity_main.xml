@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="432dp"
         android:background="@drawable/redondeado2"
+        android:onClick="guitarra"
         android:textColor="#FFFFFF"
         android:typeface="monospace"
         app:layout_constraintEnd_toEndOf="parent"

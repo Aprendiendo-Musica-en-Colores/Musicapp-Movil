@@ -18,4 +18,10 @@ public class MainActivity extends AppCompatActivity {
         Intent cambio = new Intent(MainActivity.this, Login.class);
         startActivity(cambio);
     }
+
+    public void guitarra(View view){
+        Intent cambio = new Intent(MainActivity.this, Ingresar.class);
+        startActivity(cambio);
+    }
+
 }
