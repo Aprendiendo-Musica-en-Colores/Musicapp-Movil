@@ -256,13 +256,14 @@
         android:layout_marginRight="35dp"
         android:layout_marginBottom="5dp"
         android:clickable="true"
+        android:visibility="invisible"
         app:backgroundTint="#4CAF50"
         app:layout_constraintBottom_toTopOf="@+id/conteiner_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_baseline_person_add_24" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txtBtnAgregar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
@@ -273,6 +274,7 @@
         android:paddingBottom="8dp"
         android:text="@string/txtAgregar"
         android:textColor="#000000"
+        android:visibility="invisible"
         app:fontFamily="@font/raleway_semibold"
         app:layout_constraintBottom_toBottomOf="@+id/fbtnAgregar"
         app:layout_constraintEnd_toStartOf="@+id/fbtnAgregar"
@@ -286,13 +288,14 @@
         android:layout_marginRight="35dp"
         android:layout_marginBottom="15dp"
         android:clickable="true"
+        android:visibility="invisible"
         app:backgroundTint="#CA3025"
         app:layout_constraintBottom_toTopOf="@+id/fbtnAgregar"
         app:layout_constraintEnd_toEndOf="@+id/scrollView3"
         app:srcCompat="@drawable/ic_person_remove_white_18dp" />
 
     <TextView
-        android:id="@+id/idtxtEliminar"
+        android:id="@+id/txtBtnEliminar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
@@ -303,6 +306,7 @@
         android:paddingBottom="8dp"
         android:text="@string/txtEliminar"
         android:textColor="#000000"
+        android:visibility="invisible"
         app:fontFamily="@font/raleway_semibold"
         app:layout_constraintBottom_toBottomOf="@+id/fbtnEliminar"
         app:layout_constraintEnd_toStartOf="@+id/fbtnEliminar"
@@ -316,13 +320,14 @@
         android:layout_marginRight="35dp"
         android:layout_marginBottom="15dp"
         android:clickable="true"
+        android:visibility="invisible"
         app:backgroundTint="#FF9800"
         app:layout_constraintBottom_toTopOf="@+id/fbtnEliminar"
         app:layout_constraintEnd_toEndOf="@+id/scrollView3"
         app:srcCompat="@drawable/ic_baseline_people_alt_24" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/txtBtnModificar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
@@ -333,6 +338,7 @@
         android:paddingBottom="8dp"
         android:text="@string/txtModificar"
         android:textColor="#000000"
+        android:visibility="invisible"
         app:fontFamily="@font/raleway_semibold"
         app:layout_constraintBottom_toBottomOf="@+id/fbtnModificar"
         app:layout_constraintEnd_toStartOf="@+id/fbtnModificar"
