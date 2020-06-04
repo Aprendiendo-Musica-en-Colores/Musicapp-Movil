@@ -14,7 +14,7 @@
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/vertical5"
         tools:layout_editor_absoluteX="0dp" />
 
@@ -51,6 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:ems="10"
+        android:gravity="center"
         android:hint="     USUARIO"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,6 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:gravity="center"
         android:hint="     CONTRASEÑA"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/btn_ingresar"

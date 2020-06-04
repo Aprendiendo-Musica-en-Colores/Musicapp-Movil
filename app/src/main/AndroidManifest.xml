@@ -10,9 +10,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".crudUsuarios" android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".Piano"></activity>
+        android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".crudUsuarios" />
+        <activity android:name=".Piano"/>
         <activity android:name=".CrearSala" />
         <activity android:name=".Reunion" />
         <activity android:name=".Seleccion" />
