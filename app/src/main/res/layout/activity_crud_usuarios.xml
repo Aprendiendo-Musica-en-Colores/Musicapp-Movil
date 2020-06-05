@@ -79,25 +79,6 @@
                 tools:layout_editor_absoluteY="268dp" />
 
             <EditText
-                android:id="@+id/idApeMat"
-                android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:layout_marginLeft="32dp"
-                android:layout_marginTop="28dp"
-                android:layout_marginRight="32dp"
-                android:background="@drawable/redondeo"
-                android:ems="10"
-                android:enabled="true"
-                android:gravity="center"
-                android:hint="@string/txtApeMat"
-                android:inputType="textPersonName"
-                android:textAlignment="center"
-                android:textColor="@android:color/background_dark"
-                android:textColorHint="@android:color/black"
-                tools:layout_editor_absoluteX="304dp"
-                tools:layout_editor_absoluteY="408dp" />
-
-            <EditText
                 android:id="@+id/idApePat"
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
@@ -109,6 +90,25 @@
                 android:enabled="true"
                 android:gravity="center"
                 android:hint="@string/txtApePat"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textColorHint="@android:color/black"
+                tools:layout_editor_absoluteX="304dp"
+                tools:layout_editor_absoluteY="408dp" />
+
+            <EditText
+                android:id="@+id/idApeMat"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginRight="32dp"
+                android:background="@drawable/redondeo"
+                android:ems="10"
+                android:enabled="true"
+                android:gravity="center"
+                android:hint="@string/txtApeMat"
                 android:inputType="textPersonName"
                 android:textAlignment="center"
                 android:textColor="@android:color/background_dark"
@@ -218,7 +218,7 @@
                 android:layout_marginTop="28dp"
                 android:layout_marginRight="32dp"
                 android:layout_marginBottom="28dp"
-                android:background="#FFFFFF"
+                android:background="@drawable/redondeado2"
                 android:gravity="center"
                 android:spinnerMode="dropdown"
                 android:textAlignment="center"
@@ -241,9 +241,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
             android:layout_margin="36dp"
-            android:src="@drawable/ic_baseline_menu_24"
             app:backgroundTint="#C11BDD"
-            app:fabSize="normal">
+            app:fabSize="normal"
+            app:srcCompat="@drawable/ic_baseline_menu_24">
 
         </com.google.android.material.floatingactionbutton.FloatingActionButton>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

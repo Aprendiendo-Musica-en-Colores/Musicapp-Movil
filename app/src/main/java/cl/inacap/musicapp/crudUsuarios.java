@@ -8,11 +8,10 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -25,13 +24,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class crudUsuarios extends AppCompatActivity {
 
-    private FloatingActionButton fbtnMenu,fbtnAgregar,fbtnEliminar,fbtnModificar;
-    private EditText etRut,etNombre,etApePat,etApeMat,etDirec,etMail,etFecNac,etUsu,etPass;
+    FloatingActionButton fbtnMenu,fbtnAgregar,fbtnEliminar,fbtnModificar;
+    EditText etRut,etNombre,etApePat,etApeMat,etDirec,etMail,etFecNac,etUsu,etPass;
     private TextView txtAgregar,txtEliminar,txtModificar;
     private Spinner etTipoUsu;
     private boolean isOpen;
@@ -42,9 +38,7 @@ public class crudUsuarios extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crud_usuarios);
-        String[] operaciones = {"Administrador","Profesor","Usuario"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item, operaciones);
-        etTipoUsu.setAdapter(adapter);
+
         btnOpenAnim = AnimationUtils.loadAnimation(crudUsuarios.this,R.anim.fab_open);
         btnCloseAnim = AnimationUtils.loadAnimation(crudUsuarios.this,R.anim.fab_close);
 
@@ -69,6 +63,10 @@ public class crudUsuarios extends AppCompatActivity {
 
         datos= Volley.newRequestQueue(this);
 
+        String[] operaciones = {"Administrador","Profesor","Usuario"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item, operaciones);
+        etTipoUsu.setAdapter(adapter);
+
         isOpen = false;
         fbtnMenu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,9 +90,35 @@ public class crudUsuarios extends AppCompatActivity {
                 }
             }
         });
-
     }
 
+    private void cargarWS(){
+        String url = "localhost/ConexionBD/registro.php?Run="+ etRut.getText().toString() + "&Nombre=" + etNombre.getText().toString() + "&ApPaterno=" + etApePat.getText().toString() +
+                "&ApMaterno=" + etApeMat.getText().toString() + "&Direccion=" + etDirec.getText().toString() + "&Email="+ etMail.getText().toString() +
+                "&Nacimiento=" + etFecNac.getText().toString() + "&user=" + etUsu.getText().toString() + "&pass=" + etPass.getText().toString() + " &Perfil=" + etTipoUsu.getSelectedItem().toString();
+
+        JsonObjectRequest request= new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    etRut.setText(response.getString("Run"));
+                    etNombre.setText(response.getString("Nombre"));
+                    etApePat.setText(response.getString("ApePat"));
+                    etApeMat.setText(response.getString("ApeMat"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+        datos.add(request);
+    }
+
+    /*
     public void ObtenerDatos(){
         String URL="";
         JsonObjectRequest request= new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
@@ -116,6 +140,6 @@ public class crudUsuarios extends AppCompatActivity {
             }
         });
         datos.add(request);
-    }
+    }*/
 
 }
