@@ -9,23 +9,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        tools:ignore="MissingConstraints">
-
-        <Button
-            android:id="@+id/btn_irLogin"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginLeft="640dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/user"
-            android:gravity="right"
-            android:onClick="onCLick"
-            android:padding="20dp" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:ignore="MissingConstraints">
         <ImageView
@@ -51,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="160dp"
             android:layout_marginBottom="5dp"
             android:text="MusicApp"
             android:textColor="#FFFFFF"
@@ -63,35 +46,5 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.536" />
 
-        <EditText
-            android:id="@+id/et_Codigo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="180dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginRight="180dp"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/redondeado"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Código de Sala"
-            android:inputType="textPersonName"
-            android:padding="8dp"
-            android:textColor="#575656"
-            app:layout_constraintBottom_toTopOf="@+id/btn_Ingresar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.481"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_Titulo"
-            app:layout_constraintVertical_bias="0.662"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="190dp"
-            android:layout_marginRight="190dp"
-            android:onClick="guitarra"
-            android:text="Ingresar"
-            android:background="@drawable/redondeado2"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
