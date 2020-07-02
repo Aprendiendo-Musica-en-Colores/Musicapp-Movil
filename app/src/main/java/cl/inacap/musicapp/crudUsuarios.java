@@ -63,8 +63,8 @@ public class crudUsuarios extends AppCompatActivity {
 
         datos= Volley.newRequestQueue(this);
 
-        String[] operaciones = {"Administrador","Profesor","Usuario"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item, operaciones);
+        String[] operaciones = {"Seleccionar Opción","Administrador","Profesor","Usuario"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.spinner_item, operaciones);
         etTipoUsu.setAdapter(adapter);
 
         isOpen = false;

@@ -218,12 +218,13 @@
                 android:layout_marginTop="28dp"
                 android:layout_marginRight="132dp"
                 android:layout_marginBottom="28dp"
-                android:background="@drawable/redondeado2"
+                android:background="@drawable/redondeo"
                 android:gravity="center"
                 android:spinnerMode="dropdown"
                 android:textAlignment="center"
                 tools:layout_editor_absoluteX="175dp"
                 tools:layout_editor_absoluteY="832dp" />
+
         </LinearLayout>
     </ScrollView>
 

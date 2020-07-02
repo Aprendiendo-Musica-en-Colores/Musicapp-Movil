@@ -8,35 +8,35 @@
     android:padding="10dp"
     tools:context=".crudUsuarios">
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="0dp"
-        android:layout_height="98dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginRight="52dp"
-        android:gravity="center"
-        android:text="@string/txtTitulo"
-        android:textColor="#FFFFFF"
-        android:textSize="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp"
+            android:gravity="center"
+            android:text="@string/txtTitulo"
+            android:textColor="#FFFFFF"
+            android:textSize="32sp" />
+    </LinearLayout>
+
 
     <ScrollView
         android:id="@+id/scrollView3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="128dp"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:orientation="vertical">
 
@@ -211,19 +211,17 @@
                 tools:layout_editor_absoluteY="758dp" />
 
             <Spinner
-                android:id="@+id/idTipoUsu"
-                android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:layout_marginLeft="32dp"
-                android:layout_marginTop="28dp"
-                android:layout_marginRight="32dp"
-                android:layout_marginBottom="28dp"
-                android:background="@drawable/redondeado2"
-                android:gravity="center"
-                android:spinnerMode="dropdown"
-                android:textAlignment="center"
-                tools:layout_editor_absoluteX="175dp"
-                tools:layout_editor_absoluteY="832dp" />
+            android:id="@+id/idTipoUsu"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginRight="32dp"
+            android:background="@drawable/redondeo"
+            android:layout_marginBottom="28dp"
+            android:gravity="center"
+            android:spinnerMode="dropdown"
+            android:textAlignment="center" />
         </LinearLayout>
     </ScrollView>
 
@@ -237,7 +235,7 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fbtnMenu"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
             android:layout_margin="36dp"
