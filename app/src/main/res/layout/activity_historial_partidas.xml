@@ -26,6 +26,29 @@
             android:textSize="36sp"
             android:textStyle="bold"/>
 
+        <TextView
+            android:id="@+id/nomPersona"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="40dp"
+            android:text="Carlos Figueroa Torres"
+            android:gravity="left"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="italic"/>
+        <TextView
+            android:id="@+id/rutPersona"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="40dp"
+            android:text="21.401.566-2"
+            android:gravity="left"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="italic"/>
+
         <ListView
         android:id="@+id/ListaPartidas"
         android:layout_width="match_parent"
