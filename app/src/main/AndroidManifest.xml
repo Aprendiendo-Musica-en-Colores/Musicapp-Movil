@@ -13,7 +13,6 @@
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".HistorialPartidas"></activity>
         <activity android:name=".crudUsuarios" />
-        <activity android:name=".Ingresar" />
         <activity android:name=".Login" />
         <activity android:name=".MainActivity">
             <intent-filter>

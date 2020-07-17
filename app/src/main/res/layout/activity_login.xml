@@ -62,7 +62,7 @@
             android:ems="10"
             android:gravity="center"
             android:hint="CONTRASEÑA"
-            android:inputType="textPersonName"/>
+            android:inputType="textPassword"/>
 
         <Button
             android:id="@+id/btn_ingresar"
@@ -73,7 +73,6 @@
             android:layout_marginRight="60dp"
             android:background="@drawable/redondeado2"
             android:gravity="center"
-            android:onClick="onCLick"
             android:text="Ingresar" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
