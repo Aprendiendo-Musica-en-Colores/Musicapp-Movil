@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -174,11 +175,14 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="32dp"
                 android:background="@drawable/redondeo"
+                android:focusable="false"
+                android:clickable="true"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="@string/txtFecNac"
-                android:inputType="text|date"
+                android:inputType="date"
                 android:textAlignment="center"
+                android:maxLines="1"
                 android:textColor="@android:color/background_dark"
                 android:textColorHint="@android:color/black"
                 tools:layout_editor_absoluteX="304dp"
@@ -353,5 +357,37 @@
         app:layout_constraintBottom_toBottomOf="@+id/fbtnModificar"
         app:layout_constraintEnd_toStartOf="@+id/fbtnModificar"
         app:layout_constraintTop_toTopOf="@+id/fbtnModificar" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fbtnLimpiar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="15dp"
+        android:clickable="true"
+        android:visibility="invisible"
+        app:backgroundTint="#005ef7"
+        app:layout_constraintBottom_toTopOf="@+id/fbtnModificar"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView3"
+        app:srcCompat="@drawable/ic_delete_white_24dp" />
+
+    <TextView
+        android:id="@+id/txtbtnLimpiar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/fab_text_bg"
+        android:padding="10dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:text="@string/txtLimpiar"
+        android:textColor="#FFFFFF"
+        android:visibility="invisible"
+        app:fontFamily="@font/raleway_semibold"
+        app:layout_constraintBottom_toBottomOf="@+id/fbtnLimpiar"
+        app:layout_constraintEnd_toStartOf="@+id/fbtnLimpiar"
+        app:layout_constraintTop_toTopOf="@+id/fbtnLimpiar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

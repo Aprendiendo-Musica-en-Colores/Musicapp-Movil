@@ -40,7 +40,8 @@ public class Login extends AppCompatActivity implements Response.Listener<JSONOb
         etPassword = (EditText) findViewById(R.id.etPassword);
         btnLogin = (Button) findViewById(R.id.btn_ingresar);
         request = Volley.newRequestQueue(this);
-
+        etUsuario.setText("");
+        etPassword.setText("");
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,14 +53,13 @@ public class Login extends AppCompatActivity implements Response.Listener<JSONOb
     @Override
     public void onErrorResponse(VolleyError error) {
         progreso.hide();
-        Toast.makeText(this,"Error al validar el usuario "+error.toString(),Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"Error al validar el usuario",Toast.LENGTH_LONG).show();
         Log.i("ERROR",error.toString());
     }
 
     @Override
     public void onResponse(JSONObject response) {
         progreso.hide();
-
         Usuario user = new Usuario();
         JSONArray json = response.optJSONArray("usuario");
         JSONObject jsonObject=null;
@@ -67,18 +67,26 @@ public class Login extends AppCompatActivity implements Response.Listener<JSONOb
             jsonObject = json.getJSONObject(0);
             user.setUsername(jsonObject.optString("username"));
             user.setPass(jsonObject.optString("pass"));
+            user.setPerfil(jsonObject.optString("Perfil"));
+            user.setRut(jsonObject.optString("Run"));
+            user.setNombre(jsonObject.optString("Nombre"));
         }catch (JSONException e){
             e.printStackTrace();
         }
         if (etUsuario.getText().toString().equals(user.getUsername()) || etPassword.getText().toString().equals(user.getPass()))
         {
-            cambio = new Intent(Login.this, crudUsuarios.class);
-            startActivity(cambio);
-        }else {
-            if (etUsuario.getText().toString().equals("") || etPassword.getText().toString().equals("")){
-                cambio = new Intent(Login.this, HistorialPartidas.class);
+            if (user.getPerfil().equals("Administrador")){
+                cambio = new Intent(Login.this, crudUsuarios.class);
                 startActivity(cambio);
             }
+            if (user.getPerfil().equals("Usuario")){
+                cambio = new Intent(Login.this, HistorialPartidas.class);
+                cambio.putExtra("Rut",user.getRut());
+                cambio.putExtra("Nombre",user.getNombre());
+                startActivity(cambio);
+            }
+        }else{
+            Toast.makeText(this,"No tiene permisos para ingresar",Toast.LENGTH_LONG).show();
         }
     }
 
