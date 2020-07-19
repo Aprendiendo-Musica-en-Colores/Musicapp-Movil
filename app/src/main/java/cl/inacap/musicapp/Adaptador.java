@@ -1,5 +1,6 @@
 package cl.inacap.musicapp;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,11 +9,21 @@ import android.widget.BaseAdapter;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-public class Adaptador extends BaseAdapter {
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONObject;
+
+public class Adaptador extends BaseAdapter implements Response.Listener<JSONObject>,Response.ErrorListener{
 
     private static LayoutInflater inflater;
     Context contexto;
     String[][] datos;
+    RequestQueue rQueue;
+    ProgressDialog progreso;
+    JsonObjectRequest jsonObjectRequest;
 
     public Adaptador(Context conexto, String[][] datos)
     {
@@ -27,15 +38,13 @@ public class Adaptador extends BaseAdapter {
 
         final View vista = inflater.inflate(R.layout.list_historial, null);
 
-        TextView titulo = (TextView) vista.findViewById(R.id.tvTituloCancion);
-        TextView duracion = (TextView) vista.findViewById(R.id.tvDuracion);
-        TextView fecha = (TextView) vista.findViewById(R.id.tvFecha);
+        TextView titulo = (TextView) vista.findViewById(R.id.tvInstrumento);
+        TextView fecha = (TextView) vista.findViewById(R.id.tvDificultad);
         RatingBar calificacion = (RatingBar) vista.findViewById(R.id.ratingBarPel);
 
         titulo.setText(datos[i][0]);
         fecha.setText(datos[i][1]);
-        duracion.setText("Duración " + datos[i][2]);
-        calificacion.setProgress(Integer.valueOf(datos[i][3]));
+        calificacion.setProgress(Integer.valueOf(datos[i][2]));
 
         return vista;
     }
@@ -53,6 +62,17 @@ public class Adaptador extends BaseAdapter {
     @Override
     public long getItemId(int position) {
         return 0;
+    }
+
+
+    @Override
+    public void onErrorResponse(VolleyError error) {
+
+    }
+
+    @Override
+    public void onResponse(JSONObject response) {
+
     }
 
 }

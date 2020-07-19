@@ -78,12 +78,14 @@ public class Login extends AppCompatActivity implements Response.Listener<JSONOb
             if (user.getPerfil().equals("Administrador")){
                 cambio = new Intent(Login.this, crudUsuarios.class);
                 startActivity(cambio);
+                Login.this.finish();
             }
             if (user.getPerfil().equals("Usuario")){
                 cambio = new Intent(Login.this, HistorialPartidas.class);
                 cambio.putExtra("Rut",user.getRut());
                 cambio.putExtra("Nombre",user.getNombre());
                 startActivity(cambio);
+                Login.this.finish();
             }
         }else{
             Toast.makeText(this,"No tiene permisos para ingresar",Toast.LENGTH_LONG).show();

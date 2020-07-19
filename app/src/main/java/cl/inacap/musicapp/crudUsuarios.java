@@ -58,6 +58,7 @@ public class crudUsuarios extends AppCompatActivity implements Response.Listener
     StringRequest stringRequest;
     JsonObjectRequest request;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -325,6 +326,7 @@ public class crudUsuarios extends AppCompatActivity implements Response.Listener
         progreso= new ProgressDialog(this);
         progreso.setMessage("Cargando...");
         progreso.show();
+
         if (!etRut.getText().toString().equals("")){
 
             Boolean respuesta = validaRut.validarRut(etRut.getText().toString());
@@ -334,7 +336,7 @@ public class crudUsuarios extends AppCompatActivity implements Response.Listener
                 request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Toast.makeText(crudUsuarios.this,"Datos encontrados",Toast.LENGTH_LONG).show();
+                        //Toast.makeText(crudUsuarios.this,"Datos encontrados",Toast.LENGTH_LONG).show();
                         progreso.hide();
                         Usuario user = new Usuario();
                         JSONArray json = response.optJSONArray("usuario");
@@ -353,6 +355,16 @@ public class crudUsuarios extends AppCompatActivity implements Response.Listener
                         }catch (JSONException e){
                             e.printStackTrace();
                         }
+                        String clave = user.getPass();
+                        try {
+                            String claveDesifrada="";
+                            claveDesifrada = AESUtils.decrypt(clave);
+                            Toast.makeText(crudUsuarios.this,claveDesifrada,Toast.LENGTH_LONG).show();
+                            etPass.setText(claveDesifrada);
+                            //Log.d("TEST", "decrypted:" + claveDesifrada);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                         etNombre.setText(user.getNombre());
                         etApePat.setText(user.getApPaterno());
                         etApeMat.setText(user.getApMaterno());
@@ -360,14 +372,13 @@ public class crudUsuarios extends AppCompatActivity implements Response.Listener
                         etMail.setText(user.getEmail());
                         etFecNac.setText(user.getNacimiento());
                         etUsu.setText(user.getUsername());
-                        etPass.setText(user.getPass());
                         etTipoUsu.setSelection(0);
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         progreso.hide();
-                        Toast.makeText(crudUsuarios.this,"No se puede conectar "+error.toString(),Toast.LENGTH_LONG).show();
+                        Toast.makeText(crudUsuarios.this,"No se puede conectar ",Toast.LENGTH_LONG).show();
                         etRut.setText("");
                         Log.d("ERROR : ", error.toString());
                     }

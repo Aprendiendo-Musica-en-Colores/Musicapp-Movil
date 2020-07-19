@@ -2,12 +2,17 @@ package cl.inacap.musicapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONObject;
 
@@ -16,14 +21,17 @@ public class HistorialPartidas extends AppCompatActivity implements Response.Lis
     ListView listaPartidas;
     TextView txtNomPersona;
     TextView txtRut;
+    RequestQueue rQueue;
+    ProgressDialog progreso;
+    JsonObjectRequest jsonObjectRequest;
 
     String[][] datos = {
-            {"Las Manitos", "01/07/2020", "2:49", "9"},
-            {"La Rana Sentada", "30/06/2020", "2:17", "7"},
-            {"La Cuncuna", "30/04/2020", "2:01", "8"},
-            {"Un elefante se balanceaba", "05/04/2020", "2:12", "7"},
-            {"El pollito", "08/03/2020", "1:48", "9"},
-            {"Los cochinitos", "20/20/2020", "1:56", "8"}
+            {"Piano", "Dificil", "9"},
+            {"Xilófono", "Media", "7"},
+            {"Xilófono", "Facil", "8"},
+            {"Piano", "Facil", "7"},
+            {"Piano", "Media", "9"},
+            {"Xiloófono","Dificil", "8"}
     };
 
     @Override
@@ -48,5 +56,14 @@ public class HistorialPartidas extends AppCompatActivity implements Response.Lis
     @Override
     public void onResponse(JSONObject response) {
 
+    }
+
+    public void buscarHistorial(){
+        progreso= new ProgressDialog(this);
+        progreso.setMessage("Cargando...");
+        progreso.show();
+        String url = "http://192.168.56.1/conexion/consultaLogin.php";
+        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,this,this );
+        rQueue.add(jsonObjectRequest);
     }
 }
