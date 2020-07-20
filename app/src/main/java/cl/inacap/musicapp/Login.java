@@ -40,8 +40,6 @@ public class Login extends AppCompatActivity implements Response.Listener<JSONOb
         etPassword = (EditText) findViewById(R.id.etPassword);
         btnLogin = (Button) findViewById(R.id.btn_ingresar);
         request = Volley.newRequestQueue(this);
-        etUsuario.setText("");
-        etPassword.setText("");
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,7 +63,7 @@ public class Login extends AppCompatActivity implements Response.Listener<JSONOb
         JSONObject jsonObject=null;
         try{
             jsonObject = json.getJSONObject(0);
-            user.setUsername(jsonObject.optString("username"));
+            user.setUsername(jsonObject.optString("user"));
             user.setPass(jsonObject.optString("pass"));
             user.setPerfil(jsonObject.optString("Perfil"));
             user.setRut(jsonObject.optString("Run"));
@@ -96,7 +94,7 @@ public class Login extends AppCompatActivity implements Response.Listener<JSONOb
         progreso= new ProgressDialog(this);
         progreso.setMessage("Cargando...");
         progreso.show();
-        String url = "http://192.168.56.1/conexion/consultaLogin.php?username="+ etUsuario.getText().toString() + "&pass="+ etPassword.getText().toString();
+        String url = "http://192.168.56.1/conexion de PHP/consultaLogin.php?user="+ etUsuario.getText().toString() + "&pass="+ etPassword.getText().toString();
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,this,this );
         request.add(jsonObjectRequest);
     }

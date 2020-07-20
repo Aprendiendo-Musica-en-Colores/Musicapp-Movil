@@ -233,9 +233,9 @@ public class crudUsuarios extends AppCompatActivity implements Response.Listener
 
             if (respuesta==true){
 
-                String url = "http://192.168.0.5/conexion/insert.php?Run="+ etRut.getText().toString() + "&Nombre=" + etNombre.getText().toString() + "&ApPaterno=" + etApePat.getText().toString() +
+                String url = "http://192.168.0.5/conexion de PHP/insert.php?Run="+ etRut.getText().toString() + "&Nombre=" + etNombre.getText().toString() + "&ApPaterno=" + etApePat.getText().toString() +
                         "&ApMaterno=" + etApeMat.getText().toString() + "&Direccion=" + etDirec.getText().toString() + "&Email="+ etMail.getText().toString() +
-                        "&Nacimiento=" + etFecNac.getText().toString() + "&username=" + etUsu.getText().toString() + "&pass="
+                        "&Nacimiento=" + etFecNac.getText().toString() + "&user=" + etUsu.getText().toString() + "&pass="
                         + etPass.getText().toString() + " &Perfil=" + etTipoUsu.getSelectedItem().toString();
                 url=url.replace(" ","%20");
 
@@ -267,9 +267,9 @@ public class crudUsuarios extends AppCompatActivity implements Response.Listener
                 && !etApeMat.getText().toString().equals("") && !etDirec.getText().toString().equals("") && !etMail.getText().toString().equals("") && !etFecNac.getText().toString().equals("")
                 && !etUsu.getText().toString().equals("") && !etPass.getText().toString().equals("") || !etTipoUsu.getSelectedItem().toString().equals("Seleccionar Opción")){
 
-            String url = "http://192.168.0.5/conexion/update.php?Run="+ etRut.getText().toString()+"&Nombre=" + etNombre.getText().toString() + "&ApPaterno=" + etApePat.getText().toString() +
+            String url = "http://192.168.0.5/conexion de PHP/update.php?Run="+ etRut.getText().toString()+"&Nombre=" + etNombre.getText().toString() + "&ApPaterno=" + etApePat.getText().toString() +
                     "&ApMaterno=" + etApeMat.getText().toString() + "&Direccion=" + etDirec.getText().toString() + "&Email="+ etMail.getText().toString() +
-                    "&Nacimiento=" + etFecNac.getText().toString() + "&username=" + etUsu.getText().toString() + "&pass="
+                    "&Nacimiento=" + etFecNac.getText().toString() + "&user=" + etUsu.getText().toString() + "&pass="
                     + etPass.getText().toString() + " &Perfil=" + etTipoUsu.getSelectedItem().toString();
             request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                 @Override
@@ -307,7 +307,7 @@ public class crudUsuarios extends AppCompatActivity implements Response.Listener
                     parametros.put("Direccion", direccion);
                     parametros.put("Email", mail);
                     parametros.put("Nacimiento", fecha);
-                    parametros.put("username", usuario);
+                    parametros.put("user", usuario);
                     parametros.put("pass", pass);
                     parametros.put("Perfil", tipoUsu);
 
@@ -332,7 +332,7 @@ public class crudUsuarios extends AppCompatActivity implements Response.Listener
             Boolean respuesta = validaRut.validarRut(etRut.getText().toString());
 
             if (respuesta==true){
-                String url = "http://192.168.0.5/conexion/consulta.php?Run="+ etRut.getText().toString();
+                String url = "http://192.168.0.5/conexion de PHP/consulta.php?Run="+ etRut.getText().toString();
                 request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
@@ -349,22 +349,13 @@ public class crudUsuarios extends AppCompatActivity implements Response.Listener
                             user.setDireccion(jsonObject.optString("Direccion"));
                             user.setEmail(jsonObject.optString("Email"));
                             user.setNacimiento(jsonObject.optString("Nacimiento"));
-                            user.setUsername(jsonObject.optString("username"));
+                            user.setUsername(jsonObject.optString("user"));
                             user.setPass(jsonObject.optString("pass"));
                             user.setPerfil(jsonObject.optString("Perfil"));
                         }catch (JSONException e){
                             e.printStackTrace();
                         }
-                        String clave = user.getPass();
-                        try {
-                            String claveDesifrada="";
-                            claveDesifrada = AESUtils.decrypt(clave);
-                            Toast.makeText(crudUsuarios.this,claveDesifrada,Toast.LENGTH_LONG).show();
-                            etPass.setText(claveDesifrada);
-                            //Log.d("TEST", "decrypted:" + claveDesifrada);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
+                        
                         etNombre.setText(user.getNombre());
                         etApePat.setText(user.getApPaterno());
                         etApeMat.setText(user.getApMaterno());
@@ -372,6 +363,7 @@ public class crudUsuarios extends AppCompatActivity implements Response.Listener
                         etMail.setText(user.getEmail());
                         etFecNac.setText(user.getNacimiento());
                         etUsu.setText(user.getUsername());
+                        etPass.setText(user.getPass());
                         etTipoUsu.setSelection(0);
                     }
                 }, new Response.ErrorListener() {
@@ -410,7 +402,7 @@ public class crudUsuarios extends AppCompatActivity implements Response.Listener
             Boolean respuesta = validaRut.validarRut(etRut.getText().toString());
 
             if (respuesta==true){
-                String url = "http://192.168.0.5/conexion/eliminar.php?Run="+ etRut.getText().toString();
+                String url = "http://192.168.0.5/conexion de PHP/eliminar.php?Run="+ etRut.getText().toString();
                 stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

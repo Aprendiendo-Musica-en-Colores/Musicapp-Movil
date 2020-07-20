@@ -62,7 +62,7 @@ public class HistorialPartidas extends AppCompatActivity implements Response.Lis
         progreso= new ProgressDialog(this);
         progreso.setMessage("Cargando...");
         progreso.show();
-        String url = "http://192.168.56.1/conexion/consultaLogin.php";
+        String url = "http://192.168.56.1/conexion/Conexion de PHP/consultaLogin.php";
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,this,this );
         rQueue.add(jsonObjectRequest);
     }
